@@ -101,6 +101,9 @@ func main() {
 	for water > 0 {
 		// TODO: 関数水を600[ml]減らす
 		// TODO: お湯をboil関数で600[ml]沸かして増やす
+		water = water - 600
+		hotWater += boil(600)
+		continue
 	}
 	fmt.Println(hotWater)
 
@@ -109,6 +112,9 @@ func main() {
 	for beans > 0 {
 		// TODO: 豆を20[g]減らす
 		// TODO: 挽いた豆をgrind関数で20[g]挽いて増やす
+		beans = beans - 20
+		groundBeans += grind(20)
+		continue
 	}
 	fmt.Println(groundBeans)
 
@@ -119,6 +125,11 @@ func main() {
 		// TODO: お湯を4杯に必要な分量だけ減らす
 		// TODO: 挽いた豆を4杯に必要な分量だけ減らす
 		// TODO: 4杯分の材料でbrew関数でコーヒーを淹れて増やす
+		hw := cups.HotWater()
+		hotWater -= hw
+		gb := cups.GroundBeans()
+		groundBeans -= gb
+		coffee += brew(hw, gb)
 	}
 
 	fmt.Println(coffee)
